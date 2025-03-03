@@ -43,7 +43,10 @@ class _CentraliScreenState extends State<CentraliScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, mainAxisExtent: 80),
+                      crossAxisCount: 2,
+                      mainAxisExtent: 80,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8),
                   itemBuilder: (context, index) {
                     CentraleModel centrale =
                         centraliProvider.centraliList[index];
