@@ -35,4 +35,27 @@ class CentraliProvider extends ChangeNotifier {
     selectedCentrale = newCentrale;
     notifyListeners();
   }
+
+  ///
+  Commands? selectedComando;
+
+  updateSelectedComando(Commands? newComando) {
+    selectedComando = newComando;
+    notifyListeners();
+  }
+
+  removeCommandFromCentrale(CentraleModel? centrale, Commands command) {
+    centrale?.commands?.remove(command);
+    notifyListeners();
+  }
+
+  addCommandAtIndex(CentraleModel? centrale, Commands command, int index) {
+    centrale?.commands?.insert(index, command);
+    notifyListeners();
+  }
+
+  addCommand(CentraleModel? centrale, Commands command) {
+    centrale?.commands?.add(command);
+    notifyListeners();
+  }
 }

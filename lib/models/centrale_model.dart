@@ -48,8 +48,13 @@ class Commands {
   String? name;
   String? msg;
   String? action;
+  bool? isNew = false;
 
-  Commands({this.name, this.msg, this.action});
+  //
+  TextEditingController nameController = TextEditingController();
+  TextEditingController msgController = TextEditingController();
+
+  Commands({this.name, this.msg, this.action, this.isNew = false});
 
   Commands.fromJson(Map<String, dynamic> json) {
     name = json['name'];

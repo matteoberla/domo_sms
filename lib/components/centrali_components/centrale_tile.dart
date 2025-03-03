@@ -18,7 +18,8 @@ class CentraleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("implementa");
+        centraliCallback.onCentraleTilePressed(
+            context, centraliProvider, centrale);
       },
       child: Container(
         decoration: BoxDecoration(
