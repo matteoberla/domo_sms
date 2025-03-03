@@ -1,3 +1,4 @@
+import 'package:domo_sms/components/centrali_components/centrale_tile_popup_menu.dart';
 import 'package:domo_sms/components/palladio_std_components/palladio_text.dart';
 import 'package:domo_sms/controllers/centrali_handlers/centrali_callback.dart';
 import 'package:domo_sms/models/centrale_model.dart';
@@ -16,9 +17,8 @@ class CentraleTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        await centraliCallback.onCentraleTilePressed(
-            context, centraliProvider, centrale);
+      onTap: () {
+        print("implementa");
       },
       child: Container(
         decoration: BoxDecoration(
@@ -26,6 +26,7 @@ class CentraleTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,6 +41,8 @@ class CentraleTile extends StatelessWidget {
                   ),
                 ],
               ),
+              CentraleTilePopupMenu(
+                  provider: centraliProvider, centrale: centrale),
             ],
           ),
         ),
