@@ -15,7 +15,7 @@ void main() {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     //
-    runApp(const MyApp());
+    runApp(const DomoSmsApp());
   }, (error, stackTrace) async {
     WidgetsFlutterBinding.ensureInitialized();
     FatalErrorHandler fatalErrorHandler = FatalErrorHandler();
@@ -26,8 +26,8 @@ void main() {
   });
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DomoSmsApp extends StatelessWidget {
+  const DomoSmsApp({super.key});
 
   @override
   Widget build(BuildContext context) {

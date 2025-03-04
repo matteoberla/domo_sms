@@ -48,6 +48,7 @@ dependencies:
     git:
       url: https://github.com/fluttercommunity/flutter_sms.git
       ref: master
+  sms_sender_background: ^1.0.5
 
 
 dev_dependencies:

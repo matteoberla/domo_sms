@@ -52,13 +52,6 @@ class CommandsCallback {
     String address = provider.selectedCentrale!.phoneNum!;
     String msg = command.msg!;
 
-    /*var snackBarInvio =
-    SnackBar(content: Text('SMS di ${command.name} inviato!'));
-    if (navigatorKey.currentState!.context.mounted) {
-      ScaffoldMessenger.of(navigatorKey.currentState!.context)
-          .showSnackBar(snackBarInvio);
-    }*/
-
-    await smsHandler.sendSMSTo(msg, [address]);
+    await smsHandler.sendSmsTo(address, msg);
   }
 }
