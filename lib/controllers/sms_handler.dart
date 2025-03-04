@@ -7,7 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sms_sender_background/sms_sender.dart';
 
 class SmsHandler {
-  sendSMSTo(String message, List<String> recipents) async {
+  openSMSDialog(String message, List<String> recipents) async {
     try {
       String _result = await sendSMS(
         message: message,
@@ -20,10 +20,10 @@ class SmsHandler {
     }
   }
 
-  sendSmsTo(String address, String msg) async {
+  handleSMSSend(String address, String msg) async {
     if (kIsWeb) {
       //invio messaggio tramite dialog
-      await sendSMSTo(msg, [address]);
+      await openSMSDialog(msg, [address]);
     } else {
       PermissionStatus status = await Permission.sms.status;
       //verifico permessi messaggi

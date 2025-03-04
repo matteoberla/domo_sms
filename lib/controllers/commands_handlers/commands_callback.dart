@@ -52,6 +52,6 @@ class CommandsCallback {
     String address = provider.selectedCentrale!.phoneNum!;
     String msg = command.msg!;
 
-    await smsHandler.sendSmsTo(address, msg);
+    await smsHandler.handleSMSSend(address, msg);
   }
 }
