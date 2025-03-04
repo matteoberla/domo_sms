@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:domo_sms/controllers/alerts.dart';
 import 'package:domo_sms/main.dart';
 import 'package:flutter/foundation.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:sms_sender_background/sms_sender.dart';
+import 'package:sms_advanced/sms_advanced.dart' as smsAdv;
 
 class SmsHandler {
   openSMSDialog(String message, List<String> recipents) async {
@@ -24,7 +27,10 @@ class SmsHandler {
     if (kIsWeb) {
       //invio messaggio tramite dialog
       await openSMSDialog(msg, [address]);
-    } else {
+    } else if (Platform.isIOS) {
+      // Send SMS
+      await openSMSDialog(msg, [address]);
+    } else if (Platform.isAndroid) {
       PermissionStatus status = await Permission.sms.status;
       //verifico permessi messaggi
       if (status.isDenied) {
@@ -33,7 +39,7 @@ class SmsHandler {
       }
       // Send SMS
       if (status.isGranted) {
-        await trySendSms(address, msg);
+        await trySendSmsAdvanced(address, msg);
       }
     }
   }
@@ -59,5 +65,19 @@ class SmsHandler {
       print('Error sending SMS: $e');
       Alerts.showErrorAlertNoContext("Errore", "Errore nell'invio SMS: $e");
     }
+  }
+
+  trySendSmsAdvanced(String address, String msg) async {
+    smsAdv.SmsSender sender = smsAdv.SmsSender();
+
+    smsAdv.SmsMessage message = smsAdv.SmsMessage(address, msg);
+    message.onStateChanged.listen((state) {
+      if (state == smsAdv.SmsMessageState.Sent) {
+        print("SMS is sent!");
+      } else if (state == smsAdv.SmsMessageState.Delivered) {
+        print("SMS is delivered!");
+      }
+    });
+    sender.sendSms(message);
   }
 }
