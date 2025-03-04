@@ -1,4 +1,5 @@
 import 'package:domo_sms/components/palladio_std_components/palladio_text.dart';
+import 'package:domo_sms/styles.dart';
 import 'package:flutter/material.dart';
 
 class KeyboardNumber extends StatelessWidget {
@@ -11,9 +12,7 @@ class KeyboardNumber extends StatelessWidget {
     return Container(
       width: 60.0,
       height: 60.0,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: highlightColor),
       alignment: Alignment.center,
       child: MaterialButton(
         padding: EdgeInsets.all(8.0),

@@ -11,7 +11,6 @@ class PinNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
       color: transparent,
       width: 50.0,
@@ -24,11 +23,11 @@ class PinNumber extends StatelessWidget {
             contentPadding: EdgeInsets.all(16.0),
             border: outlineInputBorder,
             filled: true,
-            fillColor: Colors.white30),
+            fillColor: highlightColor),
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 21.0,
-          color: isDark ? Colors.black : Colors.white,
+          color: Colors.black,
         ),
       ),
     );
