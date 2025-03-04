@@ -1,5 +1,6 @@
 import 'package:domo_sms/controllers/alerts.dart';
 import 'package:flutter_sms/flutter_sms.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:sms_sender_background/sms_sender.dart';
 
 class SmsHandler {
@@ -10,18 +11,17 @@ class SmsHandler {
   }
 
   sendSmsTo(String address, String msg) async {
+    PermissionStatus status = await Permission.sms.status;
+
     final smsSender = SmsSender();
 
-// Check SMS permission
-    bool hasPermission = await smsSender.checkSmsPermission();
-
-// Request permission if needed
-    if (!hasPermission) {
-      hasPermission = await smsSender.requestSmsPermission();
+    if (status.isDenied) {
+      // We didn't ask for permission yet or the permission has been denied before but not permanently.
+      status = await Permission.sms.request();
     }
 
-// Send SMS
-    if (hasPermission) {
+    // Send SMS
+    if (status.isGranted) {
       try {
         bool success = await smsSender.sendSms(
           phoneNumber: address,

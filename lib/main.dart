@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:domo_sms/controllers/fatal_error_handler.dart';
 import 'package:domo_sms/controllers/multi_providers_handler.dart';
 import 'package:domo_sms/routes.dart';
-import 'package:domo_sms/screens/centrali.dart';
+import 'package:domo_sms/screens/pin_page.dart';
 import 'package:domo_sms/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -41,7 +41,7 @@ class DomoSmsApp extends StatelessWidget {
         darkTheme: Styles.themeData(false, context),
         themeMode: ThemeMode.system,
         routes: RoutesHandler.routes,
-        home: const CentraliScreen(),
+        home: const LoginPage(),
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         localizationsDelegates: const [
