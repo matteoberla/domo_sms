@@ -17,6 +17,8 @@ class CentraliBottomSheetHandler {
         CentraliBottomSheetCallback();
     initCentraleFields(centrale);
 
+    FocusNode nomeCentraleFN = FocusNode();
+
     await showModalBottomSheet(
       backgroundColor: transparent,
       isScrollControlled: true,
@@ -24,8 +26,9 @@ class CentraliBottomSheetHandler {
       isDismissible: true,
       builder: (bsContext) {
         double height = MediaQuery.of(context).size.height;
+        nomeCentraleFN.requestFocus();
         return Padding(
-          padding: EdgeInsets.only(top: height / 2, left: 8.0, right: 8.0),
+          padding: EdgeInsets.only(top: height * 0.25, left: 8.0, right: 8.0),
           child: ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20.0),
@@ -55,6 +58,7 @@ class CentraliBottomSheetHandler {
                           textController: centrale.nameController,
                           allowedChars: AllowedChars.text,
                           textAlign: TextAlign.start,
+                          focusNode: nomeCentraleFN,
                         ),
                         PalladioText(
                           "Numero di telefono",

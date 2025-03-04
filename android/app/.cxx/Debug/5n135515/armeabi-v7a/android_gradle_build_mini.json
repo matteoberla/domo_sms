@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/matteo/Developer/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/matteo/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/matteo/Desktop/Progetti/domo_sms/android/app/.cxx/Debug/5n135515/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/matteo/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/matteo/Desktop/Progetti/domo_sms/android/app/.cxx/Debug/5n135515/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

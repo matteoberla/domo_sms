@@ -17,6 +17,8 @@ class CommandsBottomSheetHandler {
         CommandsBottomSheetCallback();
     initCommandsFields(command);
 
+    FocusNode comandoFN = FocusNode();
+
     await showModalBottomSheet(
       backgroundColor: transparent,
       isScrollControlled: true,
@@ -24,8 +26,9 @@ class CommandsBottomSheetHandler {
       isDismissible: true,
       builder: (bsContext) {
         double height = MediaQuery.of(context).size.height;
+        comandoFN.requestFocus();
         return Padding(
-          padding: EdgeInsets.only(top: height / 2, left: 8.0, right: 8.0),
+          padding: EdgeInsets.only(top: height * 0.25, left: 8.0, right: 8.0),
           child: ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20.0),
@@ -68,6 +71,7 @@ class CommandsBottomSheetHandler {
                           textController: command.msgController,
                           allowedChars: AllowedChars.text,
                           textAlign: TextAlign.start,
+                          focusNode: comandoFN,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
