@@ -33,7 +33,17 @@ class _CentraliScreenState extends State<CentraliScreen> {
     var centraliProvider = Provider.of<CentraliProvider>(context, listen: true);
 
     return Scaffold(
-      appBar: PalladioAppBar(title: "DomoSms"),
+      appBar: PalladioAppBar(
+        title: "DomoSms",
+        actions: [
+          IconButton(
+            onPressed: () {
+              centraliCallback.onHelpButtonPressed(context);
+            },
+            icon: Icon(Icons.help_outline),
+          ),
+        ],
+      ),
       body: FutureBuilder(
         future: pageInitialized,
         builder: (context, snapshot) {

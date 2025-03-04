@@ -89,7 +89,6 @@ class _OtpScreenState extends State<OtpScreen> {
           buildExtraButton(),
           Expanded(
             child: Container(
-              alignment: Alignment(0, 0.5),
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -99,11 +98,12 @@ class _OtpScreenState extends State<OtpScreen> {
                     height: 40.0,
                   ),
                   buildPinRow(),
+                  buildNumberPad(),
                 ],
               ),
             ),
           ),
-          buildNumberPad(),
+          //biometric
         ],
       ),
     );
@@ -261,7 +261,8 @@ class _OtpScreenState extends State<OtpScreen> {
             avvisoAccesso = 'Benvenuto';
             clearPad();
           });
-          Navigator.pushNamed(context, RoutesHandler.centraliPage);
+          //accesso eseguito con successo
+          Navigator.pushReplacementNamed(context, RoutesHandler.centraliPage);
         } else {
           setState(() {
             avvisoAccesso = 'Il pin inserito non è corretto';

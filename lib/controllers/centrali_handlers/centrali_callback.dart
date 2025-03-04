@@ -58,4 +58,8 @@ class CentraliCallback {
       Navigator.of(context).pop();
     });
   }
+
+  onHelpButtonPressed(BuildContext context) {
+    Navigator.pushNamed(context, RoutesHandler.helpPage);
+  }
 }
