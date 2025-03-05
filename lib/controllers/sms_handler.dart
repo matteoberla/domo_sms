@@ -17,8 +17,17 @@ class SmsHandler {
         sendDirect: true,
       );
       print(_result);
+      //
+      var snackBarInvio = SnackBar(content: Text('SMS inviato!'));
+      BuildContext currContext = navigatorKey.currentState!.context;
+      print(currContext.mounted);
+      if (currContext.mounted == true) {
+        ScaffoldMessenger.of(currContext).showSnackBar(snackBarInvio);
+      }
     } catch (error) {
       print(error.toString());
+      Alerts.showErrorAlertNoContext(
+          "Errore", "Errore nell'invio SMS: ${error.toString()}");
     }
   }
 
@@ -55,6 +64,7 @@ class SmsHandler {
       );
 
       BuildContext currContext = navigatorKey.currentState!.context;
+      print(currContext.mounted);
       if (currContext.mounted == true) {
         ScaffoldMessenger.of(currContext).showSnackBar(snackBarInvio);
       }
