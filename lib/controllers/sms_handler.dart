@@ -11,12 +11,12 @@ import 'package:sms_sender_background/sms_sender.dart';
 class SmsHandler {
   openSMSDialog(String message, List<String> recipents) async {
     try {
-      String _result = await sendSMS(
+      String result = await sendSMS(
         message: message,
         recipients: recipents,
         sendDirect: true,
       );
-      print(_result);
+      print(result);
       //
       var snackBarInvio = SnackBar(content: Text('SMS inviato!'));
       BuildContext currContext = navigatorKey.currentState!.context;

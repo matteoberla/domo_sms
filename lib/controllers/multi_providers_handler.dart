@@ -1,5 +1,6 @@
 import 'package:domo_sms/state_management/centrali_provider/centrali_provider.dart';
 import 'package:domo_sms/state_management/http_provider/http_provider.dart';
+import 'package:domo_sms/state_management/login_provider/login_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -8,6 +9,9 @@ class MultiProvidersHandler {
     return [
       ChangeNotifierProvider(
         create: (_) => HttpProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => LoginProvider(),
       ),
       ChangeNotifierProvider(
         create: (_) => CentraliProvider(),

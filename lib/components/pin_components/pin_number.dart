@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 
 class PinNumber extends StatelessWidget {
   final TextEditingController textEditingController;
-  final OutlineInputBorder outlineInputBorder;
-  const PinNumber(
-      {super.key,
-      required this.textEditingController,
-      required this.outlineInputBorder});
+  const PinNumber({
+    super.key,
+    required this.textEditingController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,10 @@ class PinNumber extends StatelessWidget {
         textAlign: TextAlign.center,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.all(16.0),
-            border: outlineInputBorder,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+              borderSide: BorderSide(color: Colors.transparent),
+            ),
             filled: true,
             fillColor: highlightColor),
         style: TextStyle(
