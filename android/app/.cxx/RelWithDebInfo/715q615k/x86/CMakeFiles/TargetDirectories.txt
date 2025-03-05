@@ -1,0 +1,2 @@
+/Users/matteo/Desktop/Progetti/domo_sms/android/app/.cxx/RelWithDebInfo/715q615k/x86/CMakeFiles/edit_cache.dir
+/Users/matteo/Desktop/Progetti/domo_sms/android/app/.cxx/RelWithDebInfo/715q615k/x86/CMakeFiles/rebuild_cache.dir
