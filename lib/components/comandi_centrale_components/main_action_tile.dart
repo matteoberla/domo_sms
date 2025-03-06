@@ -18,6 +18,7 @@ class MainActionTile extends StatelessWidget {
     CommandsHandler commandsHandler = CommandsHandler();
     CommandsCallback commandsCallback = CommandsCallback();
     Color tileColor = commandsHandler.getTileColor(command);
+    IconData icon = commandsHandler.getTileIcon(command);
 
     return InkWell(
       onTap: () async {
@@ -34,11 +35,15 @@ class MainActionTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(
-              Icons.power_settings_new,
-              color: tileColor,
-              size: 50,
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Icon(
+                icon,
+                color: tileColor,
+                size: 50,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

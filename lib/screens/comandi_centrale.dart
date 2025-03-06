@@ -31,45 +31,64 @@ class _ComandiCentralePageState extends State<ComandiCentralePage> {
       body: PalladioBody(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              IntrinsicHeight(
-                child: Row(
-                  spacing: 8,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Column(
                   children: [
-                    commandsHandler.getFirstCommandWithType(
-                        centraliProvider, CommandType.spegnimento),
-                    commandsHandler.getFirstCommandWithType(
-                        centraliProvider, CommandType.parziale),
-                    commandsHandler.getFirstCommandWithType(
-                        centraliProvider, CommandType.accensione),
-                    commandsHandler.getFirstCommandWithType(
-                        centraliProvider, CommandType.stato),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: IntrinsicHeight(
+                        child: Row(
+                          spacing: 8,
+                          children: [
+                            commandsHandler.getFirstCommandWithType(
+                                centraliProvider, CommandType.spegnimento),
+                            commandsHandler.getFirstCommandWithType(
+                                centraliProvider, CommandType.parziale),
+                            commandsHandler.getFirstCommandWithType(
+                                centraliProvider, CommandType.accensione),
+                            commandsHandler.getFirstCommandWithType(
+                                centraliProvider, CommandType.stato),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: IntrinsicHeight(
+                        child: Row(
+                          spacing: 8,
+                          children: [
+                            ...commandsHandler.getCommandsWithType(
+                                centraliProvider, CommandType.out),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-              EmptySpace(
-                height: 8,
-              ),
-              ListView.separated(
-                shrinkWrap: true,
-                separatorBuilder: (context, index) => EmptySpace(
-                  height: 8,
-                ),
-                itemBuilder: (context, index) {
-                  Commands command = commandsHandler
-                      .getGenericCommandsList(centraliProvider)[index];
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  separatorBuilder: (context, index) => EmptySpace(
+                    height: 8,
+                  ),
+                  itemBuilder: (context, index) {
+                    Commands command = commandsHandler
+                        .getGenericCommandsList(centraliProvider)[index];
 
-                  return GenericActionTile(
-                    centraliProvider: centraliProvider,
-                    command: command,
-                  );
-                },
-                itemCount: commandsHandler
-                    .getGenericCommandsList(centraliProvider)
-                    .length,
-              ),
-            ],
+                    return GenericActionTile(
+                      centraliProvider: centraliProvider,
+                      command: command,
+                    );
+                  },
+                  itemCount: commandsHandler
+                      .getGenericCommandsList(centraliProvider)
+                      .length,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -28,7 +28,11 @@ class CommandsBottomSheetHandler {
       builder: (bsContext) {
         double height = MediaQuery.of(context).size.height;
 
-        if (getCommandType(command) == CommandType.generico) {
+        bool showNomeComando =
+            getCommandType(command) == CommandType.generico ||
+                getCommandType(command) == CommandType.out;
+
+        if (showNomeComando) {
           nomeComandoFN.requestFocus();
         } else {
           comandoFN.requestFocus();
@@ -55,13 +59,13 @@ class CommandsBottomSheetHandler {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (getCommandType(command) == CommandType.generico)
+                        if (showNomeComando)
                           PalladioText(
                             "Nome comando",
                             type: PTextType.h2,
                             bold: true,
                           ),
-                        if (getCommandType(command) == CommandType.generico)
+                        if (showNomeComando)
                           PalladioTextInput(
                             forcedKeyboard: true,
                             textController: command.nameController,

@@ -38,6 +38,22 @@ class CentraliHandler {
           name: "Stato",
           action: commandsAction[CommandType.stato],
         ),
+        Commands(
+          name: "Out1",
+          action: commandsAction[CommandType.out],
+        ),
+        Commands(
+          name: "Out2",
+          action: commandsAction[CommandType.out],
+        ),
+        Commands(
+          name: "Out3",
+          action: commandsAction[CommandType.out],
+        ),
+        Commands(
+          name: "Out4",
+          action: commandsAction[CommandType.out],
+        ),
       ],
     );
 

@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 
-enum CommandType { accensione, spegnimento, parziale, stato, generico }
+enum CommandType { accensione, spegnimento, parziale, stato, out, generico }
 
 Map<CommandType, String> commandsAction = {
   CommandType.accensione: "ON",
   CommandType.spegnimento: "OFF",
   CommandType.parziale: "PARTIAL",
   CommandType.stato: "STATE",
+  CommandType.out: "OUT",
   CommandType.generico: "GENERIC",
 };
 

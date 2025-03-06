@@ -25,6 +25,34 @@ class CommandsHandler {
     }
   }
 
+  List<Widget> getCommandsWithType(
+      CentraliProvider provider, CommandType commandType) {
+    //cerco il comando per tipologia
+    List<Commands>? commandFound = provider.selectedCentrale?.commands
+        ?.where((e) => e.action == commandsAction[commandType])
+        .toList();
+
+    List<Widget> widgetList = [];
+
+    if (commandFound != null) {
+      for (var command in commandFound) {
+        widgetList.add(
+          Expanded(
+            child: MainActionTile(
+              centraliProvider: provider,
+              command: command,
+            ),
+          ),
+        );
+      }
+
+      return widgetList;
+    } else {
+      widgetList.add(EmptySpace());
+      return widgetList;
+    }
+  }
+
   List<Commands> getGenericCommandsList(CentraliProvider provider) {
     return provider.selectedCentrale?.commands
             ?.where((e) => e.action == commandsAction[CommandType.generico])
@@ -46,8 +74,31 @@ class CommandsHandler {
         return successColor;
       case CommandType.stato:
         return darkInfoColor;
+      case CommandType.out:
+        return darkInfoColor;
       default:
         return darkInfoColor;
+    }
+  }
+
+  IconData getTileIcon(Commands command) {
+    CommandType? commandType = commandsAction.keys
+        .where((k) => commandsAction[k] == command.action)
+        .firstOrNull;
+
+    switch (commandType) {
+      case CommandType.accensione:
+        return Icons.lock_outline_rounded;
+      case CommandType.parziale:
+        return Icons.punch_clock_outlined;
+      case CommandType.spegnimento:
+        return Icons.lock_open;
+      case CommandType.stato:
+        return Icons.power_settings_new;
+      case CommandType.out:
+        return Icons.power_settings_new;
+      default:
+        return Icons.power_settings_new;
     }
   }
 }
