@@ -28,6 +28,11 @@ class CentraliProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  removeCentraleAtIndex(int centraleIndex) {
+    centraliList.removeAt(centraleIndex);
+    notifyListeners();
+  }
+
   ///
   CentraleModel? selectedCentrale;
 

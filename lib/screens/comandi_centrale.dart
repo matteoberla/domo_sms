@@ -43,14 +43,19 @@ class _ComandiCentralePageState extends State<ComandiCentralePage> {
                         centraliProvider, CommandType.parziale),
                     commandsHandler.getFirstCommandWithType(
                         centraliProvider, CommandType.accensione),
+                    commandsHandler.getFirstCommandWithType(
+                        centraliProvider, CommandType.stato),
                   ],
                 ),
               ),
               EmptySpace(
                 height: 8,
               ),
-              ListView.builder(
+              ListView.separated(
                 shrinkWrap: true,
+                separatorBuilder: (context, index) => EmptySpace(
+                  height: 8,
+                ),
                 itemBuilder: (context, index) {
                   Commands command = commandsHandler
                       .getGenericCommandsList(centraliProvider)[index];

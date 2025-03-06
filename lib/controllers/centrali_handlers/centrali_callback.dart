@@ -6,6 +6,7 @@ import 'package:domo_sms/models/centrale_model.dart';
 import 'package:domo_sms/routes.dart';
 import 'package:domo_sms/state_management/centrali_provider/centrali_provider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:logger/logger.dart';
 
 class CentraliCallback {
   onAddCentralePressed(BuildContext context, CentraliProvider provider) async {
@@ -61,5 +62,13 @@ class CentraliCallback {
 
   onHelpButtonPressed(BuildContext context) {
     Navigator.pushNamed(context, RoutesHandler.helpPage);
+  }
+
+  onInfoDebug(BuildContext context, CentraliProvider provider,
+      CentraleModel centrale) async {
+    Logger log = Logger();
+
+    log.i(centrale.toJson());
+    log.e(provider.selectedCentrale?.toJson());
   }
 }

@@ -44,6 +44,8 @@ class CommandsHandler {
         return warningSecondaryColor;
       case CommandType.spegnimento:
         return successColor;
+      case CommandType.stato:
+        return darkInfoColor;
       default:
         return darkInfoColor;
     }

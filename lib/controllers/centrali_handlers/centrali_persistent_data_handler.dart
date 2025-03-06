@@ -12,6 +12,8 @@ class CentraliPersistentDataHandler {
 
     if (context.mounted) {
       await getCentraliLocallyData(context);
+    } else {
+      print("saveCentraliList - dismounted");
     }
   }
 

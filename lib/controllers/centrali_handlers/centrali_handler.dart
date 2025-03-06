@@ -19,6 +19,7 @@ class CentraliHandler {
 
   CentraleModel createNewCentraleModel() {
     CentraleModel newCentrale = CentraleModel(
+      code: DateTime.now().millisecondsSinceEpoch,
       isNew: true,
       commands: [
         Commands(
@@ -32,6 +33,10 @@ class CentraliHandler {
         Commands(
           name: "Accensione totale",
           action: commandsAction[CommandType.accensione],
+        ),
+        Commands(
+          name: "Stato",
+          action: commandsAction[CommandType.stato],
         ),
       ],
     );

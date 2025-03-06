@@ -1,15 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
-enum CommandType { accensione, spegnimento, parziale, generico }
+enum CommandType { accensione, spegnimento, parziale, stato, generico }
 
 Map<CommandType, String> commandsAction = {
   CommandType.accensione: "ON",
   CommandType.spegnimento: "OFF",
   CommandType.parziale: "PARTIAL",
+  CommandType.stato: "STATE",
   CommandType.generico: "GENERIC",
 };
 
 class CentraleModel {
+  int? code;
   String? nameCentrale;
   String? phoneNum;
   List<Commands>? commands;
@@ -20,9 +22,14 @@ class CentraleModel {
   TextEditingController phoneController = TextEditingController();
 
   CentraleModel(
-      {this.nameCentrale, this.phoneNum, this.commands, this.isNew = false});
+      {this.code,
+      this.nameCentrale,
+      this.phoneNum,
+      this.commands,
+      this.isNew = false});
 
   CentraleModel.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
     nameCentrale = json['name_centrale'];
     phoneNum = json['phone_num'];
     if (json['commands'] != null) {
@@ -35,6 +42,7 @@ class CentraleModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['code'] = code;
     data['name_centrale'] = nameCentrale;
     data['phone_num'] = phoneNum;
     if (commands != null) {

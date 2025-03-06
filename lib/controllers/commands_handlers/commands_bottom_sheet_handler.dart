@@ -17,6 +17,7 @@ class CommandsBottomSheetHandler {
         CommandsBottomSheetCallback();
     initCommandsFields(command);
 
+    FocusNode nomeComandoFN = FocusNode();
     FocusNode comandoFN = FocusNode();
 
     await showModalBottomSheet(
@@ -26,7 +27,13 @@ class CommandsBottomSheetHandler {
       isDismissible: true,
       builder: (bsContext) {
         double height = MediaQuery.of(context).size.height;
-        comandoFN.requestFocus();
+
+        if (getCommandType(command) == CommandType.generico) {
+          nomeComandoFN.requestFocus();
+        } else {
+          comandoFN.requestFocus();
+        }
+
         return Padding(
           padding: EdgeInsets.only(top: height * 0.25, left: 8.0, right: 8.0),
           child: ClipRRect(
@@ -60,6 +67,7 @@ class CommandsBottomSheetHandler {
                             textController: command.nameController,
                             allowedChars: AllowedChars.text,
                             textAlign: TextAlign.start,
+                            focusNode: nomeComandoFN,
                           ),
                         PalladioText(
                           "Comando da inviare",

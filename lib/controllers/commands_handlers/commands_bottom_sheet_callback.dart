@@ -14,6 +14,11 @@ class CommandsBottomSheetCallback {
     bool success = commandsBottomSheetHandler.verifyCommandValid(command);
     if (success) {
       provider.addCommand(provider.selectedCentrale, command);
+      //aggiorno centrale
+      int centraleIndex = provider.centraliList
+          .indexWhere((e) => e.code == provider.selectedCentrale!.code);
+      provider.removeCentraleAtIndex(centraleIndex);
+      provider.addCentraleAtIndex(provider.selectedCentrale!, centraleIndex);
       //salvataggio in locale
       CentraliPersistentDataHandler centraliPersistentDataHandler =
           CentraliPersistentDataHandler();
@@ -46,7 +51,13 @@ class CommandsBottomSheetCallback {
           //inserisco quella aggiornata allo stesso index
           provider.addCommandAtIndex(
               provider.selectedCentrale!, command, index);
-          //salvataggio in locale
+          //aggiorno centrale
+          int centraleIndex = provider.centraliList
+              .indexWhere((e) => e.code == provider.selectedCentrale!.code);
+          provider.removeCentraleAtIndex(centraleIndex);
+          provider.addCentraleAtIndex(
+              provider.selectedCentrale!, centraleIndex);
+          //salvataggio dati
           CentraliPersistentDataHandler centraliPersistentDataHandler =
               CentraliPersistentDataHandler();
           await centraliPersistentDataHandler.saveCentraliList(
@@ -55,6 +66,8 @@ class CommandsBottomSheetCallback {
             //chiudo bottom
             Navigator.of(context).pop();
           }
+        } else {
+          print("onEditCommandPressed - index comando non trovato");
         }
       } else {
         Alerts.showErrorAlertNoContext(
@@ -73,6 +86,11 @@ class CommandsBottomSheetCallback {
       Navigator.of(context).pop();
       //rimozione dalla lista
       provider.removeCommandFromCentrale(provider.selectedCentrale, command);
+      //aggiorno centrale
+      int centraleIndex = provider.centraliList
+          .indexWhere((e) => e.code == provider.selectedCentrale!.code);
+      provider.removeCentraleAtIndex(centraleIndex);
+      provider.addCentraleAtIndex(provider.selectedCentrale!, centraleIndex);
       //salvataggio in locale
       CentraliPersistentDataHandler centraliPersistentDataHandler =
           CentraliPersistentDataHandler();

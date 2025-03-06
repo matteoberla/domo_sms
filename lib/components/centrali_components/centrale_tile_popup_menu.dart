@@ -3,9 +3,10 @@ import 'package:domo_sms/controllers/centrali_handlers/centrali_callback.dart';
 import 'package:domo_sms/models/centrale_model.dart';
 import 'package:domo_sms/state_management/centrali_provider/centrali_provider.dart';
 import 'package:domo_sms/styles.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-enum MenuValues { modifica, elimina }
+enum MenuValues { modifica, elimina, info }
 
 class CentraleTilePopupMenu extends StatelessWidget {
   CentraleTilePopupMenu({
@@ -41,6 +42,11 @@ class CentraleTilePopupMenu extends StatelessWidget {
           value: MenuValues.elimina,
           child: PalladioPopUpItem(title: "Elimina", icon: Icons.delete),
         ),
+        if (kDebugMode)
+          const PopupMenuItem(
+            value: MenuValues.info,
+            child: PalladioPopUpItem(title: "print centrale", icon: Icons.info),
+          ),
       ],
       onSelected: (itemPressed) async {
         switch (itemPressed) {
@@ -52,6 +58,8 @@ class CentraleTilePopupMenu extends StatelessWidget {
             await centraliCallback.onDeleteCentralePressed(
                 context, provider, centrale);
             break;
+          case MenuValues.info:
+            await centraliCallback.onInfoDebug(context, provider, centrale);
           default:
             print("non gestito");
             break;
