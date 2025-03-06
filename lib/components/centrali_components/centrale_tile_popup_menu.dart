@@ -42,10 +42,12 @@ class CentraleTilePopupMenu extends StatelessWidget {
           value: MenuValues.elimina,
           child: PalladioPopUpItem(title: "Elimina", icon: Icons.delete),
         ),
+        if (kDebugMode) const PopupMenuDivider(),
         if (kDebugMode)
           const PopupMenuItem(
             value: MenuValues.info,
-            child: PalladioPopUpItem(title: "print centrale", icon: Icons.info),
+            child: PalladioPopUpItem(
+                title: "print debug centrale", icon: Icons.info),
           ),
       ],
       onSelected: (itemPressed) async {

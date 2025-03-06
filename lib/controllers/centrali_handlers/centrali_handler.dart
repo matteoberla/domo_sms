@@ -27,11 +27,11 @@ class CentraliHandler {
           action: commandsAction[CommandType.spegnimento],
         ),
         Commands(
-          name: "Accensione parziale",
+          name: "Acc. parziale",
           action: commandsAction[CommandType.parziale],
         ),
         Commands(
-          name: "Accensione totale",
+          name: "Acc. totale",
           action: commandsAction[CommandType.accensione],
         ),
         Commands(
