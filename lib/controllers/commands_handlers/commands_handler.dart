@@ -75,7 +75,7 @@ class CommandsHandler {
       case CommandType.stato:
         return darkInfoColor;
       case CommandType.out:
-        return darkInfoColor;
+        return darkestInfoColor;
       default:
         return darkInfoColor;
     }

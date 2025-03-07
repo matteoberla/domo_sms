@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/sasoftware/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/sasoftware/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/sasoftware/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

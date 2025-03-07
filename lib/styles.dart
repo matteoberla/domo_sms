@@ -37,6 +37,7 @@ final successSecondaryColor = Colors.lightGreen[400]!;
 const successLightColor = Colors.lightGreen;
 const infoColor = Colors.lightBlue;
 const darkInfoColor = Colors.blue;
+const darkestInfoColor = Colors.deepPurple;
 const debugItemColor = Colors.deepPurple;
 //
 const errorColor = Colors.red;
