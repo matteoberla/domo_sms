@@ -1,0 +1,2 @@
+/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/x86/CMakeFiles/edit_cache.dir
+/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/x86/CMakeFiles/rebuild_cache.dir

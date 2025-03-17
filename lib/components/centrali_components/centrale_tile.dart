@@ -29,18 +29,24 @@ class CentraleTile extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  PalladioText(centrale.nameCentrale ?? "", type: PTextType.h2),
-                  PalladioText(
-                    centrale.phoneNum ?? "",
-                    type: PTextType.h3,
-                    textColor: opaqueTextColor,
-                    italic: true,
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    PalladioText(
+                      centrale.nameCentrale ?? "",
+                      type: PTextType.h2,
+                      maxLines: 1,
+                    ),
+                    PalladioText(
+                      centrale.phoneNum ?? "",
+                      type: PTextType.h3,
+                      textColor: opaqueTextColor,
+                      italic: true,
+                    ),
+                  ],
+                ),
               ),
               CentraleTilePopupMenu(
                   provider: centraliProvider, centrale: centrale),

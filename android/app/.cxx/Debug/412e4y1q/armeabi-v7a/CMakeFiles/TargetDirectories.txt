@@ -1,0 +1,2 @@
+/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/sasoftware/Desktop/Sviluppo/domo_sms/android/app/.cxx/Debug/412e4y1q/armeabi-v7a/CMakeFiles/rebuild_cache.dir
